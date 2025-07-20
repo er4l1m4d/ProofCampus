@@ -1,26 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import { supabase } from "@/app/lib/supabaseClient";
-import { useRouter } from "next/navigation";
-
-export default function LogoutButton() {
-  const router = useRouter();
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    router.push("/login");
-  };
-
-  return (
-    <button
-      onClick={handleLogout}
-      className="text-sm text-primary hover:underline"
-    >
-      Logout
-    </button>
-  );
-}
 
 export function Sidebar() {
   const [open, setOpen] = useState(false);
