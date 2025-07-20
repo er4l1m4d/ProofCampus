@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { CertificateData, CertificateFormProps } from '@/types/certificate';
-import { useSessionUsers, SessionUser } from '@/lib/useSessionUsers';
+import { useSessionUsers } from '@/lib/useSessionUsers';
 
 export default function CertificateGeneratorForm({ data, onChange }: CertificateFormProps) {
   const { users, loading, error } = useSessionUsers();

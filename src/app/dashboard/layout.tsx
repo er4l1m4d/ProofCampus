@@ -12,7 +12,6 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false); // Start closed on mobile
   const router = useRouter();
@@ -25,7 +24,7 @@ export default function DashboardLayout({
         router.push("/login");
         return;
       }
-      setUser(session.user);
+      // setUser(session.user); // Removed unused variable
       setLoading(false);
     };
 

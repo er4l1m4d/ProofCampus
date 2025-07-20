@@ -21,7 +21,7 @@ export function useSessionUsers() {
 
   useEffect(() => {
     fetchSessionUsers();
-  }, []);
+  }, [fetchSessionUsers]);
 
   const fetchSessionUsers = async () => {
     try {

@@ -8,7 +8,6 @@ interface VerifyIrysButtonProps {
   className?: string;
   children?: React.ReactNode;
   fileType?: string;
-  transactionId?: string;
   onDownloadClick?: () => void;
 }
 
@@ -18,7 +17,6 @@ export default function VerifyIrysButton({
   className = '',
   children,
   fileType,
-  transactionId,
   onDownloadClick
 }: VerifyIrysButtonProps) {
   const baseStyles = {

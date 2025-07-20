@@ -25,7 +25,7 @@ export default function VerifyPage({ params }: VerifyPageProps) {
         } else {
           setError('Certificate not found');
         }
-      } catch (err) {
+      } catch {
         setError('Failed to load certificate');
       } finally {
         setLoading(false);

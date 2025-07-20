@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { CertificateData, CertificatePreviewProps, UploadResult } from '@/types/certificate';
+import { CertificatePreviewProps, UploadResult } from '@/types/certificate';
 import CertificateUploadButton from './CertificateUploadButton';
 import Image from 'next/image';
 

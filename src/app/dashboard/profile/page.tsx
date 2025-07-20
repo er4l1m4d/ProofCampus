@@ -3,7 +3,7 @@
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { User, Save, Edit3 } from "lucide-react";
+import { Save, Edit3 } from "lucide-react";
 
 interface UserProfile {
   id: string;

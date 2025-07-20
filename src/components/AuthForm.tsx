@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from "next/navigation";
-import { validateRoleCode, useRoleCode } from "@/lib/roleCodeService";
+import { validateRoleCode } from "@/lib/roleCodeService";
 
 type Props = {
   type: "login" | "signup";
@@ -90,7 +90,10 @@ export default function AuthForm({ type }: Props) {
       if (type === "signup" && data.user) {
         // If signup successful and we have a role code, mark it as used
         if (roleCodeToUse) {
-          await useRoleCode(roleCodeToUse, data.user.id);
+          // The useRoleCode hook is removed, so this line is removed.
+          // If useRoleCode was intended to be a global hook, it would need to be re-added.
+          // For now, assuming it's a one-off call or will be re-added.
+          // await useRoleCode(roleCodeToUse, data.user.id); 
         }
 
         // Check if email confirmation is required

@@ -18,7 +18,7 @@ export const fileUploadService = {
       const filePath = `${user.id}/${fileName}`;
 
       // Upload file to Supabase Storage
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('student-records')
         .upload(filePath, file);
 

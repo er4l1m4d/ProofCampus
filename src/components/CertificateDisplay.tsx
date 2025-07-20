@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Certificate } from '@/types/certificate';
 import { QRCodeSVG } from 'qrcode.react';
 

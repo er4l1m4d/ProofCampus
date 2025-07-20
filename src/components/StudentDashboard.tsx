@@ -76,7 +76,7 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
     };
 
     checkSession();
-  }, [supabase.auth, router]);
+  }, [supabase.auth, router, fetchData]);
 
   const fetchData = async (userId: string) => {
     // Fetch study sessions
@@ -513,7 +513,7 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
           <div className="bg-white rounded-xl p-4 md:p-6 w-full max-w-md mx-auto modal-content">
             <h3 className="text-lg md:text-xl font-bold mb-4 text-gray-900">Delete Study Session</h3>
             <p className="text-gray-600 mb-6">
-              Are you sure you want to delete the study session "{sessionToDelete.topic}"? This action cannot be undone.
+              Are you sure you want to delete the study session &quot;{sessionToDelete.topic}&quot;? This action cannot be undone.
             </p>
             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
               <button
@@ -540,7 +540,7 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
           <div className="bg-white rounded-xl p-4 md:p-6 w-full max-w-md mx-auto modal-content">
             <h3 className="text-lg md:text-xl font-bold mb-4 text-gray-900">Delete Course</h3>
             <p className="text-gray-600 mb-6">
-              Are you sure you want to delete the course "{courseToDelete.name}"? This action cannot be undone.
+              Are you sure you want to delete the course &quot;{courseToDelete.name}&quot;? This action cannot be undone.
             </p>
             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
               <button

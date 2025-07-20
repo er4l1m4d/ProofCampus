@@ -181,14 +181,14 @@ export default function LecturerDashboard({ userProfile }: LecturerDashboardProp
             <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3 text-sm">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
-                <span className="truncate">News article "Machine Learning Course" published</span>
+                <span className="truncate">News article &quot;Machine Learning Course&quot; published</span>
               </div>
               <span className="text-gray-500 text-xs sm:text-sm whitespace-nowrap">1 day ago</span>
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center space-y-1 sm:space-y-0 sm:space-x-3 text-sm">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-purple-500 rounded-full flex-shrink-0"></div>
-                <span className="truncate">Workshop "Data Science" scheduled</span>
+                <span className="truncate">Workshop &quot;Data Science&quot; scheduled</span>
               </div>
               <span className="text-gray-500 text-xs sm:text-sm whitespace-nowrap">2 days ago</span>
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { CertificateData, CertificatePreviewProps } from '@/types/certificate';
+import { CertificatePreviewProps } from '@/types/certificate';
 
 export default function CertificatePreview({ data }: CertificatePreviewProps) {
   const formatDate = (dateString: string) => {

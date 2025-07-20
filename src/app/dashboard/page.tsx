@@ -10,7 +10,6 @@ import LecturerDashboard from "@/components/LecturerDashboard";
 import AdminDashboard from "@/components/AdminDashboard";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   
@@ -24,7 +23,6 @@ export default function DashboardPage() {
         router.push("/login");
         return;
       }
-      setUser(session.user);
       
       // Fetch user profile
       const profile = await userService.getCurrentUserProfile();
