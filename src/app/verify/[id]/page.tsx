@@ -5,13 +5,7 @@ import { Certificate } from '@/types/certificate';
 import { certificateService } from '@/lib/certificateService';
 import { QRCodeSVG } from 'qrcode.react';
 
-interface VerifyPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function VerifyPage({ params }: VerifyPageProps) {
+export default function VerifyPage({ params }: { params: { id: string } }) {
   const [certificate, setCertificate] = useState<Certificate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
