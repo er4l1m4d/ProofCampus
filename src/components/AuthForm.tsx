@@ -115,7 +115,7 @@ export default function AuthForm({ type }: Props) {
       <div className="w-full max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-lg text-center">
         <h2 className="text-xl md:text-2xl font-bold mb-4 text-green-600">Check Your Email!</h2>
         <p className="text-gray-700 mb-4 text-sm md:text-base">
-          We've sent a confirmation link to <strong className="break-all">{email}</strong>
+          We&apos;ve sent a confirmation link to <strong className="break-all">{email}</strong>
         </p>
         <p className="text-xs md:text-sm text-gray-600">
           Please check your email and click the link to verify your account.
