@@ -1,5 +1,5 @@
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
-import { UserProfile, UserRole } from "@/types/user";
+import { UserProfile, UserRole, AuthUser } from "@/types/user";
 
 const supabase = createPagesBrowserClient();
 
@@ -26,7 +26,15 @@ export const userService = {
           console.log('User profile not found, attempting to create it manually...');
           
           // Try to create the profile manually
-          const createdProfile = await this.createUserProfile(user);
+          const safeUser = {
+            ...user,
+            email: user.email ?? "unknown@example.com",
+            user_metadata: {
+              ...user.user_metadata,
+              role: user.user_metadata?.role ?? 'student'
+            }
+          };
+          const createdProfile = await this.createUserProfile(safeUser);
           if (createdProfile) {
             console.log('Profile created manually:', createdProfile);
             return createdProfile;
@@ -48,13 +56,13 @@ export const userService = {
   },
 
   // Create user profile manually (fallback)
-  async createUserProfile(authUser: any): Promise<UserProfile | null> {
+  async createUserProfile(authUser: AuthUser): Promise<UserProfile | null> {
     try {
       console.log('Creating user profile for:', authUser.id, authUser.email);
       
       // First, try to get the role from user metadata
       const role = authUser.user_metadata?.role || 'student';
-      const displayName = authUser.user_metadata?.full_name || authUser.email.split('@')[0];
+      const displayName = authUser.user_metadata?.full_name || authUser.email?.split('@')[0] || 'Unknown';
       
       console.log('Using role:', role, 'and display name:', displayName);
       

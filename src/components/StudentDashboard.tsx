@@ -3,8 +3,8 @@
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, X, Calendar as CalendarIcon, Clock, BookOpen, FileText, Trash2 } from "lucide-react";
-import { UserProfile } from "@/types/user";
+import { Plus, X, Calendar as CalendarIcon, Clock, Trash2 } from "lucide-react";
+import { UserProfile, AuthUser } from "@/types/user";
 import { StudentRecord } from "@/types/fileUpload";
 import { fileUploadService } from "@/lib/fileUploadService";
 import FileUploadForm from "./FileUploadForm";
@@ -33,7 +33,7 @@ interface StudentDashboardProps {
 }
 
 export default function StudentDashboard({ userProfile }: StudentDashboardProps) {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [sessions, setSessions] = useState<Session[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
@@ -67,7 +67,10 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
         router.push("/login");
         return;
       }
-      setUser(session.user);
+      setUser({
+        ...session.user,
+        email: session.user.email ?? "unknown@example.com"
+      });
       setLoading(false);
       await fetchData(session.user.id);
     };

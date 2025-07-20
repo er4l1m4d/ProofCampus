@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { CertificateData, CertificatePreviewProps, UploadResult } from '@/types/certificate';
 import CertificateUploadButton from './CertificateUploadButton';
+import Image from 'next/image';
 
 export default function CertificateGeneratorPreview({ data }: CertificatePreviewProps) {
   const certificateRef = useRef<HTMLDivElement>(null);
@@ -129,9 +130,11 @@ export default function CertificateGeneratorPreview({ data }: CertificatePreview
       >
         {/* Optional Logo */}
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-          <img 
+          <Image 
             src="/logo.png" 
             alt="Institution Logo" 
+            width={80}
+            height={80}
             style={{
               width: '80px',
               height: '80px',

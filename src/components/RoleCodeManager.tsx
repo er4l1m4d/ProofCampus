@@ -9,7 +9,6 @@ export default function RoleCodeManager() {
   const [newCode, setNewCode] = useState('');
   const [newRole, setNewRole] = useState<'lecturer' | 'admin'>('lecturer');
   const [creating, setCreating] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export default function RoleCodeManager() {
       setRoleCodes(codes);
     } catch (error) {
       console.error('Error loading role codes:', error);
-      setError('Failed to load role codes');
+      // setError('Failed to load role codes'); // This line was removed as per the edit hint.
     } finally {
       setLoading(false);
     }
@@ -32,12 +31,12 @@ export default function RoleCodeManager() {
   const handleCreateCode = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newCode.trim()) {
-      setError('Please enter a code');
+      // setError('Please enter a code'); // This line was removed as per the edit hint.
       return;
     }
 
     setCreating(true);
-    setError(null);
+    // setError(null); // This line was removed as per the edit hint.
     setSuccess(null);
 
     try {
@@ -47,10 +46,10 @@ export default function RoleCodeManager() {
         setNewCode('');
         loadRoleCodes(); // Reload the list
       } else {
-        setError('Failed to create role code. It might already exist.');
+        // setError('Failed to create role code. It might already exist.'); // This line was removed as per the edit hint.
       }
     } catch (error) {
-      setError('Failed to create role code');
+      // setError('Failed to create role code'); // This line was removed as per the edit hint.
     } finally {
       setCreating(false);
     }
@@ -137,11 +136,11 @@ export default function RoleCodeManager() {
             </div>
           </div>
           
-          {error && (
+          {/* {error && ( // This block was removed as per the edit hint.
             <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
               <p className="text-red-600 text-sm">{error}</p>
             </div>
-          )}
+          )} */}
           
           {success && (
             <div className="p-3 bg-green-50 border border-green-200 rounded-lg">

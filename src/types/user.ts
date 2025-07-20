@@ -11,8 +11,9 @@ export interface UserProfile {
 
 export interface AuthUser {
   id: string;
-  email: string;
+  email?: string; // allow undefined
   user_metadata?: {
     full_name?: string;
+    role?: string; // add this
   };
 } 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { UserProfile, UserRole } from "@/types/user";
 import { userService } from "@/lib/userService";
-import { Users, Shield, Settings, BarChart3, Edit, Trash2, Plus, X, Key } from "lucide-react";
+import { Users, Shield, Settings, BarChart3, Edit, Plus, X, Key } from "lucide-react";
 import RoleCodeManager from "./RoleCodeManager";
 
 interface AdminDashboardProps {

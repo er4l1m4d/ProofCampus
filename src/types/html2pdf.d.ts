@@ -9,15 +9,15 @@ declare module 'html2pdf.js' {
     html2canvas?: {
       scale?: number;
       useCORS?: boolean;
-      [key: string]: any;
+      [key: string]: unknown;
     };
     jsPDF?: {
       unit?: string;
       format?: string;
       orientation?: string;
-      [key: string]: any;
+      [key: string]: unknown;
     };
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   interface Html2PdfInstance {

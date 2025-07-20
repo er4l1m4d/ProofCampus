@@ -7,7 +7,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <AuthForm type="login" />
         <p className="mt-4 text-gray-700 text-sm md:text-base text-center">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-blue-600 hover:underline font-medium">Sign up</Link>
         </p>
       </div>

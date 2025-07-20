@@ -3,14 +3,14 @@
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { UserProfile } from "@/types/user";
+import { UserProfile, AuthUser } from "@/types/user";
 import { userService } from "@/lib/userService";
 import StudentDashboard from "@/components/StudentDashboard";
 import LecturerDashboard from "@/components/LecturerDashboard";
 import AdminDashboard from "@/components/AdminDashboard";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Certificate } from '@/types/certificate';
+import { UserProfile } from '@/types/user';
 import { certificateService } from '@/lib/certificateService';
 import { userService } from '@/lib/userService';
 import CertificateForm from '@/components/CertificateForm';
@@ -10,7 +11,7 @@ import CertificateDisplay from '@/components/CertificateDisplay';
 export default function CertificatesPage() {
   const [certificates, setCertificates] = useState<Certificate[]>([]);
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
-  const [userProfile, setUserProfile] = useState<any>(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
 

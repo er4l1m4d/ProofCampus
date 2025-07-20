@@ -61,7 +61,7 @@ export default function VerifyPage({ params }: VerifyPageProps) {
         <div className="text-center">
           <div className="text-red-600 text-4xl md:text-6xl mb-4">❌</div>
           <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">Certificate Not Found</h1>
-          <p className="text-gray-600 text-sm md:text-base">The certificate you're looking for doesn't exist or has been removed.</p>
+          <p className="text-gray-600 text-sm md:text-base">The certificate you&apos;re looking for doesn&apos;t exist or has been removed.</p>
           <p className="text-xs md:text-sm text-gray-500 mt-2">Certificate ID: {params.id}</p>
         </div>
       </div>

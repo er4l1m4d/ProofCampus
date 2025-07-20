@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, LayoutDashboard, BookOpen, User, LogOut, FileText, Award } from "lucide-react";
+import type { AuthUser } from '@/types/user';
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false); // Start closed on mobile
   const router = useRouter();

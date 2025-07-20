@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { UserProfile } from "@/types/user";
 import { StudentRecord } from "@/types/fileUpload";
 import { fileUploadService } from "@/lib/fileUploadService";
-import { FileText, Newspaper, Users, Award, Plus, X } from "lucide-react";
+import { Newspaper, Users, Award, Plus } from "lucide-react";
 import FileUploadForm from "./FileUploadForm";
 import FileList from "./FileList";
 
