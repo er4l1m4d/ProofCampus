@@ -3,7 +3,7 @@
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { UserProfile, AuthUser } from "@/types/user";
+import { UserProfile } from "@/types/user";
 import { userService } from "@/lib/userService";
 import StudentDashboard from "@/components/StudentDashboard";
 import LecturerDashboard from "@/components/LecturerDashboard";

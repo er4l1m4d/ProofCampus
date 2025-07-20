@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, LayoutDashboard, BookOpen, User, LogOut, FileText, Award } from "lucide-react";
-import type { AuthUser } from '@/types/user';
 
 export default function DashboardLayout({
   children,

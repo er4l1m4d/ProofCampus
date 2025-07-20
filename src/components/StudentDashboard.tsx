@@ -1,7 +1,7 @@
 'use client';
 
 import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Plus, X, Calendar as CalendarIcon, Clock, Trash2 } from "lucide-react";
 import { UserProfile, AuthUser } from "@/types/user";
@@ -60,25 +60,7 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
   const router = useRouter();
   const supabase = createPagesBrowserClient();
 
-  useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        router.push("/login");
-        return;
-      }
-      setUser({
-        ...session.user,
-        email: session.user.email ?? "unknown@example.com"
-      });
-      setLoading(false);
-      await fetchData(session.user.id);
-    };
-
-    checkSession();
-  }, [supabase.auth, router, fetchData]);
-
-  const fetchData = async (userId: string) => {
+  const fetchData = useCallback(async (userId: string) => {
     // Fetch study sessions
     const { data: sessionsData } = await supabase
       .from('study_sessions')
@@ -99,7 +81,25 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
     if (sessionsData) setSessions(sessionsData);
     if (coursesData) setCourses(coursesData);
     setFiles(filesData);
-  };
+  }, [supabase, fileUploadService]);
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        router.push("/login");
+        return;
+      }
+      setUser({
+        ...session.user,
+        email: session.user.email ?? "unknown@example.com"
+      });
+      setLoading(false);
+      if (user) fetchData(user.id);
+    };
+
+    checkSession();
+  }, [supabase.auth, router, fetchData, user]);
 
   const handleFileUploadSuccess = () => {
     fetchData(user!.id);

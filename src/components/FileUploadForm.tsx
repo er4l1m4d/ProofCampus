@@ -13,7 +13,6 @@ export default function FileUploadForm({ onUploadSuccess }: FileUploadFormProps)
   const [file, setFile] = useState<File | null>(null);
   const [type, setType] = useState<FileType>('result');
   const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

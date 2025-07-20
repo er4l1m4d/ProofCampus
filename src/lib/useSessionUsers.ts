@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 
 export interface SessionUser {
@@ -19,11 +19,7 @@ export function useSessionUsers() {
   
   const supabase = createPagesBrowserClient();
 
-  useEffect(() => {
-    fetchSessionUsers();
-  }, [fetchSessionUsers]);
-
-  const fetchSessionUsers = async () => {
+  const fetchSessionUsers = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -125,7 +121,11 @@ export function useSessionUsers() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [supabase]);
+
+  useEffect(() => {
+    fetchSessionUsers();
+  }, [fetchSessionUsers]);
 
   const refreshUsers = () => {
     fetchSessionUsers();
