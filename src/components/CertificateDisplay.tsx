@@ -69,9 +69,18 @@ export default function CertificateDisplay({ certificate, onDownload }: Certific
       try {
         await navigator.clipboard.writeText(verificationUrl);
         setShowShareSuccess(true);
-        setTimeout(() => setShowShareSuccess(false), 3000);
-      } catch (clipboardError) {
-        alert('Failed to copy link. Please copy manually: ' + verificationUrl);
+          setTimeout(() => setShowShareSuccess(false), 3000);
+      } catch (error) {
+        console.error('Error sharing certificate:', error);
+        // Fallback to clipboard
+        try {
+          await navigator.clipboard.writeText(verificationUrl);
+          setShowShareSuccess(true);
+          setTimeout(() => setShowShareSuccess(false), 3000);
+        } catch (error) {
+          console.error('Error sharing certificate:', error);
+          alert('Failed to copy link. Please copy manually: ' + verificationUrl);
+        }
       }
     }
   };
