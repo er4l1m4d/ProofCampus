@@ -81,7 +81,7 @@ export default function StudentDashboard({ userProfile }: StudentDashboardProps)
     if (sessionsData) setSessions(sessionsData);
     if (coursesData) setCourses(coursesData);
     setFiles(filesData);
-  }, [supabase, fileUploadService]);
+  }, [supabase]);
 
   useEffect(() => {
     const checkSession = async () => {

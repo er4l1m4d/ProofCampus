@@ -68,7 +68,7 @@ export default function ProfilePage() {
     };
 
     fetchUserProfile();
-  }, [supabase]);
+  }, [supabase, router]);
 
   const handleSave = async () => {
     if (!user) return;
